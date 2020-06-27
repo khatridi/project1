@@ -11,6 +11,7 @@ package ca.sheridancollege.project;
  *
  * @author dancye
  * @author Megha Patel
+ * @author Akhtar Muhammad
  * @author Divyeshkumar Khatri
  */
 public abstract class Card {
