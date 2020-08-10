@@ -7,6 +7,7 @@ package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 /**
  * A concrete class that represents any grouping of cards for a Game. HINT, you might want to subclass this more than
@@ -16,7 +17,7 @@ import java.util.Collections;
  * @author Paul Bonenfant Jan 2020
  * @author Megha Patel
  * @author Akhtar Muhammad
- * @author Divyeshkumar Khatri
+ * @modifier Divyeshkumar Khatri
  */
 public class GroupOfCards {
 
@@ -27,7 +28,17 @@ public class GroupOfCards {
     public GroupOfCards(int size) {
         this.size = size;
     }
-
+    
+    public GroupOfCards(){
+        cards = new ArrayList<Card>();
+        // Iterating through all the suits and faces of the cards and adding them in new deck
+        for(int i =0; i <= 4; i++){
+            for(int j = 1; j <= 13; j++){
+                cards.add(new Card(i, j));
+            }
+        }
+    }
+    
     /**
      * A method that will get the group of cards as an ArrayList
      *
@@ -38,9 +49,23 @@ public class GroupOfCards {
     }
 
     public void shuffle() {
-        Collections.shuffle(cards);
+        Random ran = new Random();
+        Card crd;
+        for(int i = 0; i < 104; i++){
+            int a = ran.nextInt(cards.size() - 1);
+            int b = ran.nextInt(cards.size() - 1);
+            int c = ran.nextInt(cards.size() - 1);
+            crd = cards.get(c);
+            cards.set(c, cards.get(b));
+            cards.set(b, cards.get(a));
+            cards.set(a, crd);
+        }
     }
-
+    
+    
+    public Card drawNew(){
+        return cards.remove(0);
+    }
     /**
      * @return the size of the group of cards
      */
