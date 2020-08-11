@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Divyeshkumar Khatri
  */
 public class BlackJackDealer {
+    
     ArrayList<Card> dealerCard;
     
     private int dealerPoint = 0;
